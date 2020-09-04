@@ -1,5 +1,5 @@
 //==============================================================================
-//Copyright (c) 2013-2014 Qualcomm Connected Experiences, Inc.
+//Copyright (c) 2019-2020 Qualcomm Connected Experiences, Inc.
 //All Rights Reserved.
 //==============================================================================
 

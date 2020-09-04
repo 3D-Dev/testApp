@@ -1,7 +1,7 @@
 /*==============================================================================
-Copyright (c) 2017 PTC Inc. All Rights Reserved.
+Copyright (c) 2020 PTC Inc. All Rights Reserved.
 
-Copyright (c) 2010-2014 Qualcomm Connected Experiences, Inc.
+Copyright (c) 2019-2020 Qualcomm Connected Experiences, Inc.
 All Rights Reserved.
 Confidential and Proprietary - Protected under copyright and other laws.
 ==============================================================================*/
@@ -17,6 +17,11 @@ using Vuforia;
 /// </summary>
 public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 {
+    public string jengaPieceTag = "jengaBlock";
+    public GameObject tower;
+    public GameObject cube;
+    public GameObject cam;
+
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
@@ -29,6 +34,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void Start()
     {
+        Debug.Log("Init1");
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
             mTrackableBehaviour.RegisterTrackableEventHandler(this);
@@ -48,10 +54,27 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     ///     Implementation of the ITrackableEventHandler function called when the
     ///     tracking state changes.
     /// </summary>
+    bool firstTrack;
+    public void OnButtonClick(){
+        // Debug.Log("Init3");
+        // mTrackableBehaviour = GetComponent<TrackableBehaviour>();
+        // if (mTrackableBehaviour){
+        //     Debug.Log("Init4");
+        //     mTrackableBehaviour.RegisterTrackableEventHandler(this);
+        //}
+        cam = GameObject.Find("ARCamera");
+        cam.transform.position = new Vector3(3.366f, 2.612f, 3.087f);
+        GameObject[] pieces = GameObject.FindGameObjectsWithTag(jengaPieceTag);   
+        foreach(GameObject piece in pieces){
+    
+        }
+
+    }
     public void OnTrackableStateChanged(
         TrackableBehaviour.Status previousStatus,
         TrackableBehaviour.Status newStatus)
     {
+        Debug.Log("Init2");
         m_PreviousStatus = previousStatus;
         m_NewStatus = newStatus;
 
@@ -98,6 +121,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Enable canvas':
         foreach (var component in canvasComponents)
             component.enabled = true;
+
+            Debug.Log("!!!##############@@@@@@@@@@@@@@@@@@@@@");
     }
 
 

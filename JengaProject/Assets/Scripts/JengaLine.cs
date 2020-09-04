@@ -8,6 +8,7 @@ public class JengaLine : MonoBehaviour {
     private bool toogleMouse;
     public GameObject camera;
     public GameObject jengaPiece;
+    public GameObject prevJengaPiece;
     
     //ARCamera Position
     float xCam;
@@ -43,6 +44,14 @@ public class JengaLine : MonoBehaviour {
             toogleMouse = true;
 
             jengaPiece = GetComponent<Renderer>().gameObject;
+            if(jengaPiece){
+                Debug.Log("jengaPiece == true");
+                isSelected = true;
+            }
+            else{
+                Debug.Log("jengaPiece == false");
+                isSelected = true;
+            }
            // transform.position += new Vector3(0.2f, 0, 0);
            Debug.Log( " CAMERA+                   " + camera.transform.position.ToString() );
            xCam = camera.transform.position.x;
@@ -55,14 +64,22 @@ public class JengaLine : MonoBehaviour {
 
          
            GetComponent<Renderer>().material.color = Color.red;
-           
+           Debug.Log("jengaPiece1");
            //wait 5 second for change color
             yield return new WaitForSeconds(5);
-            GetComponent<Renderer>().material.color = Color.blue;
+            //GetComponent<Renderer>().material.color = Color.blue;
 
           
             
             toogleMouse = false;
+        }
+        else{
+            Debug.Log("jengaPiece2");
+            GetComponent<Renderer>().material.color =new Color(132, 78, 0, 255);
+            isSelected = false;
+           
+           //wait 5 second for change color
+            yield return new WaitForSeconds(5);
         }
     }
 

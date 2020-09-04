@@ -6,7 +6,7 @@
 //countries.
 //===============================================================================
 //===============================================================================
-//Copyright (c) 2010-2014 Qualcomm Connected Experiences, Inc.
+//Copyright (c) 2019-2020 Qualcomm Connected Experiences, Inc.
 //All Rights Reserved.
 //Confidential and Proprietary - Qualcomm Connected Experiences, Inc.
 //===============================================================================

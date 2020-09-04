@@ -49,6 +49,7 @@ public class groundDetect : MonoBehaviour, ITrackableEventHandler
         {
             // View cube when imagetarget is found
             tower.SetActive(true);
+            Debug.Log("detectedd target 3");
             firstTrack = false;
         }
         else

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JengaLineMove : MonoBehaviour {
 
+    private JengaLine prevJengaLine = null;
 	// Use this for initialization
 	void Start () {
 		
@@ -27,11 +28,18 @@ public class JengaLineMove : MonoBehaviour {
                 if (hit.collider.tag == "JengaLine")
                 {
                     JengaLine jengaLine = hit.collider.GetComponent<JengaLine>();
+                    
                     jengaLine.SetSelected();
-                    jengaLine.GetComponent<Renderer>().material.color = Color.blue;
+                    //jengaLine.GetComponent<Renderer>().material.color = Color.blue;
+                    //jengaLine.GetComponent<Renderer>().material.color = Color.red;
                     jengaLine.Move();
                 }
             }
         }
+    }
+
+    private static JengaLine GetJengaLine(JengaLine jengaLine)
+    {
+        return jengaLine;
     }
 }
